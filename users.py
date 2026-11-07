@@ -17,12 +17,21 @@ class Employee (User):
 class Admin (User):
     def __init__ (self, name, email, phone, address):
         super ().__init__ (name, email, phone, address)
-        self.employees = []
 
-    def add_employee (self, name, email, phone, address, age, designation, salary):
-        employee = Employee (name, email, phone, address, age, designation, salary)
+    def add_employee (self, restaurant, employee):
+        restaurant.add_employee (employee)
+
+    def view_employee (self, restaurant):
+        restaurant.view_employee ()
+
+
+class Restaurant:
+    def __init__ (self, name):
+        self.name = name
+        self.employees = []  # like - database of employee
+        
+    def add_employee (self, employee):
         self.employees.append (employee)
-        print (f'{name} is added successfully')
 
     def view_employee (self):
         print ("-----Employee List-----")
@@ -30,8 +39,42 @@ class Admin (User):
             print (emp.name, emp.email, emp.phone, emp.address, emp.designation, emp.salary)
 
 
-# ad = Admin ("Mozahid", "mim@gmail.com", 12345210, "Dhaka")
+class Menu:
+    def __init__ (self):
+        self.items = []   # like - database of employee
 
-# ad.add_employee ("Sagor", "sagor@gmail.com", 13001110, "Khagan", 32, "Head Chef", 30000)
+    def add_menu_item (self, item):
+        self.items.append (item)
 
-# ad.view_employee ()
+    def find_item (self, item_name):
+        for item in self.items:
+            if (item.name.lower() == item_name.lower()):
+                return item
+        return None
+
+    def remove_item (self, item_name):
+        item = self.find_item (item_name)
+        
+        if (item):
+            self.items.remove (item)
+            print ("Remove successfully")
+        else:
+            print ("Item not found")
+
+
+
+
+
+
+
+
+
+
+
+rest = Restaurant ("Mama Vagna Birani House")
+ad = Admin ("Mozahid", "mim@gmail.com", 12345210, "Dhaka")
+emp = Employee ("Sagor", "sagor@gmail.com", 13001110, "Khagan", 32, "Head Chef", 30000)
+
+
+ad.add_employee (rest, emp)
+ad.view_employee (rest)
