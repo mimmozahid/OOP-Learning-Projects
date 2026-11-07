@@ -1,6 +1,7 @@
 
 from abc import ABC
 from order import Order
+from restaurant import Restaurant
 
 class User (ABC):
     def __init__ (self, name, email, phone, address) -> None:
@@ -16,7 +17,7 @@ class Customer (User):
         self.card = Order ()
 
     def view_menu (self, restuarant):
-        restuarant.menu.show_menu (restuarant)
+        restuarant.menu.show_menu ()
 
     def add_to_card (self, restuarant, item_name, quantity):
         item = restuarant.menu.find_item (item_name)
@@ -25,8 +26,8 @@ class Customer (User):
             if (quantity > item.quantity):
                 print ("Item quantity exceeded")
             else:
-                item.quantity = quantity
-                self.card.add_item (item)
+                item.quantity -= quantity
+                self.card.add_item (item, quantity)
                 print ("Item added")
         else:
             print ("Item Not Found")

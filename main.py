@@ -24,7 +24,7 @@ def customer_menu ():
         choice = int (input ("Enter Your Choice: "))
 
         if (choice == 1):
-            customer.view_menu (restuarant=restaurant)
+            customer.view_menu (restaurant)
         
         elif (choice == 2):
             item_name = input ("Enter Item Name: ")
