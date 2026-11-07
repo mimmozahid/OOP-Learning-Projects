@@ -25,9 +25,32 @@ class Customer (User):
     def view_card (self):
         print ("***** View Card *****")
         print ("Name\tPrice\tquantity")
+        for item, quantity in self.card.items.items():
+            print (f'{item.name} {item.price} {quantity}')
+        print (f"Total Price: {self.card.total_price}")   
+
+
+class Order:
+    def __init__ (self):
+        self.items = {}
+
+    def add_item (self, item):
+        if item in self.items:
+            self.items[item] += item.quantity
+        else:
+            self.items[item] = item.quantity
+
+    def remove_item (self):
+        if item in self.items:
+            del self.items[item]
+
+    def total_price (self):
+        return sum (item.price * quantity for item, quantity in self.items.items())
+
+    def clear (self):
+        self.items = {}
         
 
-    
 class Employee (User):
     def __init__ (self, name, email, phone, address, age, designation, salary):
         super().__init__ (name, email, phone, address)
