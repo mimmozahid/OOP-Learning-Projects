@@ -11,8 +11,9 @@ class School:
     def add_teacher (self, subject, teacher): # in this method "teacher" is obsect
         self.teachers[subject] = teacher
 
-    def student_admission (self, student):
-        pass
+    def student_admission(self, student):
+        classname = student.classroom.name
+        self.classrooms[classname].add_student(student)
 
 
     @staticmethod
@@ -65,8 +66,39 @@ class School:
 
     def __repr__ (self) -> str:
         # all classrooms
+        for key in self.classrooms.keys():
+            print (key)
+
         # all students
+        print ("All Students")
+        result = ''
+        for key, value in self.classrooms.items ():
+            result += f'--------{key.upper()} Classroom Students\n'
+            for student in value.students:
+                result += f'{student.name}\n'
+        print (result)
+
         # all subjects
+        print ("\nAll Subjects")
+        subject = ''
+        for key, value in self.classrooms.items():
+            subject += f'-------{key.upper()} Classroom Subject\n'
+            for sub in value.subjects:
+                subject += f'{sub.name}\n'
+        print (subject)
+
         # all teachers
+        print ("\nAll Teachers")
+        for key, value in self.teachers.items():
+            print (f"Subject Name: {key.upper()} -> Teacher Name: {value.name}\n")
+
+
         # all Student's results
-        pass
+        print ("\nStudents Results")
+        for key, value in self.classrooms.items ():
+            for st in value.students:
+                for i, v in st.marks.items():
+                    print (st.name, i, v, st.subject_grade[i])
+                print (st.calculate_final_grade ())
+        
+        return ""

@@ -13,5 +13,5 @@ class Subject:
         for student in students:
             mark = self.teacher.evaluate_exam()
             student.marks[self.name] = mark
-            student.subject_grade[self.name] = School.value_to_grade (mark)
+            student.subject_grade[self.name] = School.calculate_grade (mark)
             

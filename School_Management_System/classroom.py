@@ -5,7 +5,7 @@ class ClassRoom:
         self.subjects = [] # the list of subject object
 
     def add_student (self, student):
-        roll_no = f'{self.name}-{(self.students)+1}'
+        roll_no = f'{self.name}-{len(self.students) + 1}'
         student.id = roll_no
         self.students.append (student)
 
