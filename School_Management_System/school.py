@@ -1,4 +1,4 @@
-class school:
+class School:
     def __init__ (self, name, address):
         self.name = name
         self.address = address
@@ -70,4 +70,3 @@ class school:
         # all teachers
         # all Student's results
         pass
-    
