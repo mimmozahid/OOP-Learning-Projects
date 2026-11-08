@@ -25,7 +25,7 @@ class Student (Person):
         self.grade = None  # final grade
 
     
-    def final_grade (self):
+    def calculate_final_grade (self):
         sum = 0.00
         for grade in self.subject_grade.values():
             point += School.grade_to_value (grade)
