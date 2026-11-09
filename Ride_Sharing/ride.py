@@ -29,7 +29,7 @@ class Ride:
         self.rider = None
         self.start_time = None
         self.end_time = None
-        self.estimated_fare = None #! have to work
+        self.estimated_fare = self.calculate_fare (vehicle.vehicle_type)
 
     def set_driver (self, driver):
         self.driver = driver
@@ -76,11 +76,11 @@ class RideMatching:
             if vehicle_type == 'car':
                 vehicle = Car ('car', "ABC456", 30)
             elif vehicle_type == 'bike':
-                vechicle = Bike("bike", "1234BH", 50)
+                vehicle = Bike("bike", "1234BH", 50)
             elif vehicle_type == 'cng':
-                vechicle = CNG("cng", "1BH", 20)
+                vehicle = CNG("cng", "1BH", 20)
 
             
-            ride = Ride(ride_request.rider.current_location, ride_request.end_location, vechicle)
+            ride = Ride (ride_request.rider.current_location, ride_request.end_location, vehicle)
             driver.accept_ride(ride)
             return ride
