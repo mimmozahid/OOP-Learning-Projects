@@ -30,6 +30,5 @@ Restaurant_Management_System/
 │   ├── ride.py
 │   ├── users.py
 │   ├── vehicle.py
-│   └── __init__.py (if added later)
 │
 └── README.md
