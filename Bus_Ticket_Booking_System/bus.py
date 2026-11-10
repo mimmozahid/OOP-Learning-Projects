@@ -12,7 +12,7 @@ class Bus:
 
     def show_all_available_seats (self):
         for i, st in enumerate(self.seat):
-            print (f"Seat Number {i}: {st}")
+            print (f"Seat Number {i+1}: {st}")
 
     def book_seat (self, idx):
         if 0 <= idx < len(self.seat) and self.seat[idx] == "Empty":
