@@ -15,12 +15,12 @@ class Bus:
             print (f"Seat Number {i}: {st}")
 
     def book_seat (self, idx):
-        if self.seat[idx] == "Empty":
+        if 0 <= idx < len(self.seat) and self.seat[idx] == "Empty":
             self.seat[idx] = "Booked"
             self.booked_seat += 1
-            print ("Seat Number {idx} is Booked Successfully.")
+            print (f"Seat Number {idx+1} is Booked Successfully.")
         else:
-            print ("Seat Number {idx} is is not available.")
+            print (f"Seat Number {idx+1} is is not available.")
 
     def __str__(self):
-        return (f"Bus No: {self.number} | Route: {self.route}\nAvailable Seats: {self.available_seats()} {self.total_seat}\n")
+        return (f"Bus No: {self.number} | Route: {self.route}\nAvailable Seats: {self.available_seats()} | Total Seat: {self.total_seat}\n")
