@@ -8,7 +8,17 @@ class BusSystem:
         self.passengers = []
         self.admin = Admin ("admin", "@123")
         self.login_admin = False
-    
+
+
+    def admin_login (self, username, password):
+        if (self.admin.logIn (username, password)):
+            self.login_admin = True
+            return True
+        return False
+
+    def logout (self):
+        self.login_admin = False
+
     def add_bus (self, number, route, seats):
         bus = Bus (number, route, total_seat)
             
@@ -49,4 +59,11 @@ class BusSystem:
         Passenger (name, phone, bus)
         self.add_passenger (Passenger)
 
-    
+    def show_passenger (self):
+        if len(self.passengers) == 0:
+            print ("No Booking yet")
+            return
+
+        print ("----Booked Passengers----")
+        for p in self.passengers:
+            print (p)

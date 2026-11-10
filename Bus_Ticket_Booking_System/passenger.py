@@ -7,4 +7,4 @@ class Passenger:
         self.bus = bus #* bus = Object
 
     def __str__(self):
-        return (f"Passenger: {self.name} | Phone: {self.phone} | Bus: {self.bus.number} ({self.bus.route})")
+        return (f"Passenger: {self.name} | Phone: {self.phone}\nBus: {self.bus.number} ({self.bus.route})\n")

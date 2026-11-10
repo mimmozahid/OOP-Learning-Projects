@@ -4,7 +4,7 @@ class Bus:
         self.route = route
         self.total_seat = total_seat
         self.seat = ["Empty"] * total_seat
-        self.booked_seat = 0 #! have to work
+        self.booked_seat = 0
 
 
     def available_seats(self):
@@ -23,4 +23,4 @@ class Bus:
             print ("Seat Number {idx} is is not available.")
 
     def __str__(self):
-        return (f"Bus No: {self.number} | Route: {self.route}\nAvailable Seats: {self.available_seats()} {self.total_seat}")
+        return (f"Bus No: {self.number} | Route: {self.route}\nAvailable Seats: {self.available_seats()} {self.total_seat}\n")
